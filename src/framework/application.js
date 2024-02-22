@@ -1,6 +1,7 @@
 import { platform } from '../core/platform.js';
 
 import { WebglGraphicsDevice } from '../platform/graphics/webgl/webgl-graphics-device.js';
+import { WebgpuGraphicsDevice } from '../platform/graphics/webgpu/webgpu-graphics-device.js';
 
 import { SoundManager } from '../platform/sound/manager.js';
 
@@ -154,6 +155,10 @@ class Application extends AppBase {
             options.graphicsDeviceOptions.xrCompatible = true;
         }
         options.graphicsDeviceOptions.alpha = options.graphicsDeviceOptions.alpha || false;
+
+        if (options.graphicsDeviceOptions.preferWebGpu) {
+            return new WebgpuGraphicsDevice(canvas, options.graphicsDeviceOptions);
+        }
 
         return new WebglGraphicsDevice(canvas, options.graphicsDeviceOptions);
     }
