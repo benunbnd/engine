@@ -8,6 +8,19 @@ if (!(canvas instanceof HTMLCanvasElement)) {
     throw new Error('No canvas found');
 }
 
+// add ar link image
+const div = document.createElement('div');
+div.style.cssText = 'width:100%; position:absolute; top:10px';
+div.innerHTML = ` <div style="text-align: center;">
+    <a id="ar-link" rel="ar" download="asset.usdz">
+        <img src="./arkit.png" id="button" width="200"/>
+    </a>    
+</div>`;
+const appInner = document.getElementById('appInner');
+if (appInner) {
+    appInner.appendChild(div);
+}
+
 const assets = {
     helipad: new pc.Asset(
         'helipad-env-atlas',

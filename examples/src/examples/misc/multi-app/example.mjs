@@ -130,6 +130,12 @@ const apps = {
     null: []
 };
 
+// Remove existing canvas element
+const canvas = document.getElementById('application-canvas');
+if (canvas) {
+    canvas.remove();
+}
+
 // Add event listers for adding and removing apps
 for (const deviceType in apps) {
     data.set(deviceType, 0);
