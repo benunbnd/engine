@@ -65,6 +65,8 @@
   "devDependencies": {
     "@babel/standalone": "^7.22.9",
     "@monaco-editor/react": "^4.5.1",
+    "@playcanvas/dbg": "file:..",
+    "@playcanvas/prf": "file:..",
     "@playcanvas/eslint-config": "^1.5.0",
     "@playcanvas/observer": "1.4.0",
     "@playcanvas/pcui": "^4.1.2",

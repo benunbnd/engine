@@ -1,4 +1,5 @@
 import * as pc from 'playcanvas';
+window.pc = pc;
 import { data } from '@examples/observer';
 import { rootPath } from '@examples/utils';
 

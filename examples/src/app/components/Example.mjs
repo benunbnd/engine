@@ -16,13 +16,12 @@ import { getOrientation } from '../utils.mjs';
 import '../events.js';
 
 /**
- * @template {Record<string, string>} [FILES=Record<string, string>]
  * @typedef {object} ExampleOptions
  * @property {Function} loadES5 - The async function to load ES5 files.
  * @property {HTMLCanvasElement} canvas - The canvas.
  * @property {string} deviceType - The device type.
  * @property {import('@playcanvas/observer').Observer} data - The data.
- * @property {FILES} files - The files.
+ * @property {Record<string, string>} files - The files.
  */
 
 /**
@@ -99,6 +98,7 @@ class Example extends TypedComponent {
             controls = module.controls;
         } catch (e) {
             controls = () => jsx('pre', null, e.message);
+            console.error('CONTROLS ERROR', e);
         }
         return controls;
     }

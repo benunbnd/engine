@@ -1,4 +1,5 @@
 import * as pc from 'playcanvas';
+window.pc = pc;
 
 const canvas = document.getElementById('application-canvas');
 if (!(canvas instanceof HTMLCanvasElement)) {

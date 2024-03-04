@@ -1,4 +1,5 @@
 import * as pc from 'playcanvas';
+window.pc = pc;
 import files from '@examples/files';
 import { deviceType, loadES5, rootPath } from '@examples/utils';
 

@@ -1,4 +1,5 @@
 import * as pc from 'playcanvas';
+window.pc = pc;
 import * as pcx from 'playcanvas-extras';
 import { deviceType, rootPath } from '@examples/utils';
 

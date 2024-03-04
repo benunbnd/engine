@@ -18,7 +18,7 @@ export default class MiniStats {
         if (params.miniStats === 'false') {
             return;
         }
-        if (typeof pc === 'undefined' || typeof pcx === 'undefined') {
+        if (typeof window.pc === 'undefined' || typeof window.pcx === 'undefined') {
             return;
         }
         if (!app) {

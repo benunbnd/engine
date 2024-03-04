@@ -59,7 +59,9 @@ function generateExampleFile(categoryKebab, exampleNameKebab, config) {
     html = html.replace(/'@CONFIG'/g, JSON.stringify(`./${name}.config.mjs`));
 
     // engine
-    const engineType = process.env.ENGINE_PATH ? 'DEVELOPMENT' : process.env.NODE_ENV === 'development' ? 'DEBUG' : config.ENGINE;
+    const engineType = process.env.ENGINE_PATH ? 'DEVELOPMENT' :
+        process.env.NODE_ENV === 'development' ? 'DEBUG' :
+            config.ENGINE;
     const engine = engineFor(engineType);
     html = html.replace(/'@ENGINE'/g, JSON.stringify(engine));
 
@@ -68,18 +70,6 @@ function generateExampleFile(categoryKebab, exampleNameKebab, config) {
     }
 
     return html;
-}
-
-/**
- * @param {string} script - The script to be patched.
- * @returns {string} - The patched script.
- */
-function patchScript(script) {
-    // remove playcanvas & playcanvas-extras imports
-    script = script.replace(/\s*import[\s\w*{},]+["']playcanvas["']\s*;?[\s\r\n]*/g, '');
-    script = script.replace(/\s*import[\s\w*{},]+["']playcanvas-extras["']\s*;?[\s\r\n]*/g, '');
-
-    return script;
 }
 
 async function main() {
@@ -108,11 +98,11 @@ async function main() {
 
         // example file
         let script = fs.readFileSync(examplePath, 'utf-8');
-        fs.writeFileSync(`${MAIN_DIR}/dist/iframe/${name}.example.mjs`, patchScript(script));
+        fs.writeFileSync(`${MAIN_DIR}/dist/iframe/${name}.example.mjs`, script);
 
         // controls file
         script = controlsExist ? fs.readFileSync(controlsPath, 'utf-8') : TEMPLATE_CONTROLS;
-        fs.writeFileSync(`${MAIN_DIR}/dist/iframe/${name}.controls.mjs`, patchScript(script));
+        fs.writeFileSync(`${MAIN_DIR}/dist/iframe/${name}.controls.mjs`, script);
 
         // config files
         script = configExists ? fs.readFileSync(configPath, 'utf-8') : TEMPLATE_CONFIG;

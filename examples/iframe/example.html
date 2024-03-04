@@ -14,12 +14,15 @@
         <script type="importmap">
             {
                 "imports": {
-                    "playcanvas": '@ENGINE',
-                    "fflate": "../../modules/fflate/esm/browser.js",
+                    "@playcanvas/dbg": "./playcanvas.dbg.mjs",
+                    "@playcanvas/prf": "./playcanvas.prf.mjs",
                     "@examples/config": '@CONFIG',
                     "@examples/utils": "./utils.mjs",
                     "@examples/observer": "./observer.mjs",
-                    "@examples/files": "./files.mjs"
+                    "@examples/files": "./files.mjs",
+                    "fflate": "../../modules/fflate/esm/browser.js",
+                    "playcanvas": '@ENGINE',
+                    "playcanvas-extras": "./playcanvas-extras.mjs/index.js"
                 }
             }
         </script>
