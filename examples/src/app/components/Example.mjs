@@ -94,6 +94,7 @@ class Example extends TypedComponent {
         this._controlsUrl = URL.createObjectURL(blob);
         let controls;
         try {
+            // TODO: speed up loading by not importing the whole of playcanvas
             const module = await import(this._controlsUrl);
             controls = module.controls;
         } catch (e) {
