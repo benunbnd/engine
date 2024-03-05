@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import { rootPath } from '@examples/utils';
 
 const canvas = document.getElementById('application-canvas');
@@ -32,6 +31,7 @@ const assets = {
     font: new pc.Asset('font', 'font', { url: rootPath + '/static/assets/fonts/courier.json' })
 };
 
+window.pc = pc;
 const app = new pc.Application(canvas, {
     mouse: new pc.Mouse(canvas),
     touch: new pc.TouchDevice(canvas),

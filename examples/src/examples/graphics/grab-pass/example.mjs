@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import files from '@examples/files';
 import { deviceType, rootPath } from '@examples/utils';
 
@@ -34,6 +33,7 @@ createOptions.touch = new pc.TouchDevice(document.body);
 createOptions.componentSystems = [pc.RenderComponentSystem, pc.CameraComponentSystem];
 createOptions.resourceHandlers = [pc.TextureHandler];
 
+window.pc = pc;
 const app = new pc.AppBase(canvas);
 app.init(createOptions);
 

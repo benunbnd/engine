@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import { rootPath } from '@examples/utils';
 
 const canvas = document.getElementById('application-canvas');
@@ -21,6 +20,7 @@ const message = function (msg) {
     el.textContent = msg;
 };
 
+window.pc = pc;
 const app = new pc.Application(canvas, {
     mouse: new pc.Mouse(canvas),
     touch: new pc.TouchDevice(canvas),

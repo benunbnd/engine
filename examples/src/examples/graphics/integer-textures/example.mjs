@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import { data } from '@examples/observer';
 import files from '@examples/files';
 import { deviceType, rootPath } from '@examples/utils';
@@ -61,6 +60,7 @@ createOptions.resourceHandlers = [
     pc.TextureHandler
 ];
 
+window.pc = pc;
 const app = new pc.AppBase(canvas);
 app.init(createOptions);
 

@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import { data } from '@examples/observer';
 import { rootPath } from '@examples/utils';
 
@@ -47,7 +46,8 @@ const createApp = async function (deviceType) {
         pc.FontHandler
     ];
 
-    const app = new pc.AppBase(canvas);
+    window.pc = pc;
+const app = new pc.AppBase(canvas);
     app.init(createOptions);
     app.start();
 

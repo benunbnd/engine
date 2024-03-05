@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import { deviceType, rootPath } from '@examples/utils';
 
 const canvas = document.getElementById('application-canvas');
@@ -50,6 +49,7 @@ createOptions.resourceHandlers = [
     pc.FontHandler
 ];
 
+window.pc = pc;
 const app = new pc.AppBase(canvas);
 app.init(createOptions);
 

@@ -1,5 +1,4 @@
 import * as pc from 'playcanvas';
-window.pc = pc;
 import files from '@examples/files';
 import { deviceType, loadES5, rootPath } from '@examples/utils';
 
@@ -28,6 +27,7 @@ createOptions.graphicsDevice = device;
 createOptions.componentSystems = [pc.RenderComponentSystem, pc.CameraComponentSystem, pc.LightComponentSystem];
 createOptions.resourceHandlers = [pc.TextureHandler, pc.ContainerHandler];
 
+window.pc = pc;
 const app = new pc.AppBase(canvas);
 app.init(createOptions);
 app.start();
