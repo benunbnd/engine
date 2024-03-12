@@ -64,16 +64,13 @@ function createScript(name, app) {
     if (reservedScriptNames.has(name))
         throw new Error(`Script name '${name}' is reserved, please rename the script`);
 
-    class scriptType extends ScriptType {}
+    class ScriptTypeWithAttributes extends ScriptType {
+        // @ts-ignore
+        attributes = new ScriptAttributes(this);
+    }
 
-    // TODO: Figure out if this is required or can allow attributes to be loaded lazy by get handler.
-    Object.defineProperty(scriptType, 'attributes', {
-        value: new ScriptAttributes(scriptType),
-        configurable: true
-    });
-
-    registerScript(scriptType, name, app);
-    return scriptType;
+    registerScript(ScriptTypeWithAttributes, name, app);
+    return ScriptTypeWithAttributes;
 }
 
 // Editor uses this - migrate to ScriptAttributes.reservedNames and delete this
