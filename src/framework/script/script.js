@@ -66,6 +66,12 @@ function createScript(name, app) {
 
     class scriptType extends ScriptType {}
 
+    // TODO: Figure out if this is required or can allow attributes to be loaded lazy by get handler.
+    Object.defineProperty(scriptType, 'attributes', {
+        value: new ScriptAttributes(scriptType),
+        configurable: true
+    });
+
     registerScript(scriptType, name, app);
     return scriptType;
 }
